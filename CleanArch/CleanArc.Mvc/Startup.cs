@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CleanArc.Infra.Data.Context;
 
 namespace CleanArc.Mvc
 {
@@ -30,6 +31,13 @@ namespace CleanArc.Mvc
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("IdentityDBConnection")));
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
+
+
+            services.AddDbContext<ScheduleDBContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("ScheduleDBConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
