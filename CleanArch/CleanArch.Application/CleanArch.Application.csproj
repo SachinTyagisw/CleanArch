@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\CleanArch.Domain\CleanArc.Domain.csproj" />
   </ItemGroup>
 
 </Project>

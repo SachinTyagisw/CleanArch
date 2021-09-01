@@ -8,5 +8,7 @@ namespace CleanArch.Application.Interface
     public interface IScheduleService
     {
         IEnumerable<ScheduleViewModel> GetSchedules();
+
+        ScheduleViewModel GetSchedule();
     }
 }
