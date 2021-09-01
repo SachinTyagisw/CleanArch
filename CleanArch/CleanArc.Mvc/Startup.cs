@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CleanArc.Infra.Data.Context;
+using CleanArc.Infra.IOC;
 
 namespace CleanArc.Mvc
 {
@@ -43,6 +44,8 @@ namespace CleanArc.Mvc
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            ResigterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,6 +77,11 @@ namespace CleanArc.Mvc
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+        }
+
+        private static void ResigterServices(IServiceCollection services)
+        {
+            Bootstrapper.RegisterServices(services);
         }
     }
 }
